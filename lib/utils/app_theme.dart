@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static const _colorSchemeLight = ColorScheme(
-    primary: Color(0xff77688F),
+    primary: Color(0xffBA68C8),
     primaryContainer: Color(0xff4A4A4A),
     secondary: Color(0xffB4B4B4),
     background: Color(0xFFFFFFFF),

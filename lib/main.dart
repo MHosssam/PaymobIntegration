@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:paymob_integration/utils/app_theme.dart';
 import 'package:paymob_integration/utils/constants.dart';
 import 'package:paymob_integration/utils/dio_helper.dart';
+import 'package:paymob_integration/view/register.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: AppTheme.getTheme(Brightness.light),
         locale: const Locale(AppConstant.appLocaleCode),
-        home: Container(),
+        home: RegisterScreen(),
       ),
     );
   }
