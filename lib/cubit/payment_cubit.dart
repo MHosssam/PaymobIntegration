@@ -15,7 +15,7 @@ class PaymentCubit extends Cubit<PaymentStates> {
     String phone,
   ) async {
     emit(LoadingState(true));
-    DioHelper.postDate(
+    DioHelper.postData(
         url: 'auth/tokens',
         data: {'api_key': AppConstant.apiKey}).then((value) {
       AppConstant.paymobToken = value.data['token'];
@@ -34,7 +34,7 @@ class PaymentCubit extends Cubit<PaymentStates> {
     String email,
     String phone,
   ) async {
-    DioHelper.postDate(url: 'ecommerce/orders', data: {
+    DioHelper.postData(url: 'ecommerce/orders', data: {
       'auth_token': AppConstant.paymobToken,
       'delivery_needed': 'false',
       'amount_cents': price,
@@ -58,7 +58,7 @@ class PaymentCubit extends Cubit<PaymentStates> {
     String email,
     String phone,
   ) async {
-    DioHelper.postDate(url: 'acceptance/payment_keys', data: {
+    DioHelper.postData(url: 'acceptance/payment_keys', data: {
       "auth_token": AppConstant.paymobToken,
       "amount_cents": price,
       "expiration": 3600,
@@ -97,7 +97,7 @@ class PaymentCubit extends Cubit<PaymentStates> {
     String email,
     String phone,
   ) async {
-    DioHelper.postDate(url: 'acceptance/payment_keys', data: {
+    DioHelper.postData(url: 'acceptance/payment_keys', data: {
       "auth_token": AppConstant.paymobToken,
       "amount_cents": price,
       "expiration": 3600,
@@ -131,7 +131,7 @@ class PaymentCubit extends Cubit<PaymentStates> {
   }
 
   Future getRefCode() async {
-    DioHelper.postDate(url: 'acceptance/payments/pay', data: {
+    DioHelper.postData(url: 'acceptance/payments/pay', data: {
       "source": {"identifier": "AGGREGATOR", "subtype": "AGGREGATOR"},
       "payment_token": AppConstant.paymentFinalTokenKiosk,
     }).then((value) {
